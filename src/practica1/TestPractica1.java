@@ -1,11 +1,9 @@
-package practica1.Pr1;
-
-import org.junit.Test;
+package practica1.src.practica1;
 
 import java.util.*;
 
 import static org.junit.Assert.*;
-import static practica1.Pr1.Practica1.*;
+import static practica1.src.practica1.Practica1.*;
 
 
 public class TestPractica1 {
