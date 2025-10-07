@@ -33,7 +33,7 @@ public class Practica1 {
         int max = 0;
         int min = 0;
         for (int i = 0; i < lista.size(); i++){
-            if (lista[i] > max )
+
         }
     }
 
