@@ -65,20 +65,30 @@ public class Practica1 {
 
     //EJERCICIO 3
     public static<T> Collection<Set<T>> divideInSets (Iterator<T> it) {
-        Collection<Set<T>> resultado = new ArrayList<>();
-        Set<T> actual = new LinkedHashSet<>();
-
+        List<T> elementos = new ArrayList<>();
         while (it.hasNext()) {
-            T elem = it.next();
-            if (actual.contains(elem)) {
-                resultado.add(actual);
-                actual = new LinkedHashSet<>();
+            elementos.add(it.next());
+        }
+
+        List<Set<T>> resultado = new ArrayList<>();
+
+        for (T elem : elementos) {
+            boolean colocado = false;
+
+            for (Set<T> conjunto : resultado) {
+                if (!conjunto.contains(elem)) {
+                    conjunto.add(elem);
+                    colocado = true;
+                    break;
+                }
             }
-            actual.add(elem);
+            if (!colocado) {
+                Set<T> nuevo = new HashSet<>();
+                nuevo.add(elem);
+                resultado.add(nuevo);
+            }
         }
-        if (!actual.isEmpty()) {
-            resultado.add(actual);
-        }
+
         return resultado;
     }
 
