@@ -94,10 +94,25 @@ public class Practica1 {
 
     //EJERCICIO 4
     public static<T> Collection<Set<T>> coverageSet2 (Set<T> u,ArrayList<Set<T>> col) {
-        //TODO
-        return null;
+        ArrayList<Set<T>> resultado = new ArrayList<>();
+
+        for (int i = 0; i < col.size(); i++) {
+            for (int j = i + 1; j < col.size(); j++) {
+
+                Set<T> union = new LinkedHashSet<>(col.get(i));
+                union.addAll(col.get(j));
+
+                if (union.equals(u)) {
+                    Set<T> s1 = new LinkedHashSet<>(col.get(i));
+                    Set<T> s2 = new LinkedHashSet<>(col.get(j));
+
+                    resultado.add(s1);
+                    resultado.add(s2);
+
+                    return new ArrayList<>(resultado);
+                }
+            }
+        }
+        return new ArrayList<>();
     }
-
-
-
 }
